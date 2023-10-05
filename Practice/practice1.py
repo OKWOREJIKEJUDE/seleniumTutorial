@@ -1,24 +1,15 @@
 
 from selenium import webdriver
-import time
+from selenium.webdriver.chrome.service import Service
 
-# Create a WebDriver instance
-browser = webdriver.Chrome()
+chrome_path = "C:\\Drivers_i_downloaded\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
+service = Service(chrome_path)
+driver = webdriver.Chrome(service=service)
 
-# Open the website
-browser.get('http://selenium.dev/')
+driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-# Add a delay to keep the browser open (e.g., 10 seconds)
-time.sleep(5000)
+# Wait for user input before closing the browser
+input("Press Enter to close the browser...")
 
-# Close the browser when done
-browser.quit()
-
-
-
-
-
-
-
-
-
+# After user input, close the browser window
+driver.quit()
