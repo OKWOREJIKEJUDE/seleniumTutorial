@@ -17,5 +17,8 @@ myOwnDriver.find_element(By.NAME, "addtocart_4.EnteredQuantity").send_keys("3")
 myOwnDriver.find_element(By.ID, "add-to-cart-button-4").click()
 myOwnDriver.find_element(By.CSS_SELECTOR, ".cart-label").click()
 
+# todo How to use CLASS NAME
+lengthOfSliders = myOwnDriver.find_elements(By.CLASS_NAME, "        ")
+
 input("Press Enter to close the browser...")
 # myOwnDriver.quit()
