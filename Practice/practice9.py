@@ -22,10 +22,26 @@ print(element.text)
 element = myDriver.find_element(By.LINK_TEXT, "Log")
 element.click()
 
+# todo SCENARIOS OF FIND ELEMENT TO CHECK
+# todo 1. Locator matching with single web element
+# todo Here, we used a single locator "//*[@id="small-searchterms"]" to access multiple web elements (by find_elements)
+elementss = myDriver.find_elements(By.XPATH, '//*[@id="small-searchterms"]')# todo send_keys method won't appear b/c we're pointing at multiple elements
+print(len(elementss))
+print(elementss[0].send_keys("Apple MacBook Pro 13-inch"))
 
+# todo 2. Locator matching with multiple web element
+# todo we used a single locator to access multiple web elements(find_elements) and the printer the one we wanted
+ourElement = myDriver.find_elements(By.XPATH, "//div[@class='footer']//a")
+print(len(ourElement))
+print(ourElement[0].text)
 
+for elem in ourElement:
+    print(elem.text)
 
-
+# todo 3. Element will not throw NoSuchElementException
+# todo Here, even if the locator (Lo) is wrong, it will not throw any exception, it will return element 0
+exceptionElement = myDriver.find_elements(By.LINK_TEXT, "Lo")
+print("Elements returned =", len(exceptionElement))
 
 
 
